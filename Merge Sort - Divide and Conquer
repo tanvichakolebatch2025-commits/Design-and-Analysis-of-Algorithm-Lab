@@ -1,0 +1,33 @@
+Q1 1.1.2. Merge Sort - Divide and Conquer
+You are given an array of n integers, and your task is to sort this array in non-decreasing order using the Merge Sort algorithm, which is based on the Divide and Conquer strategy.
+#include <stdio.h>
+		int m = l + (r - l)/2;
+		mergeSort(arr,l,m);
+		mergeSort(arr, m+1, r);
+		merge(arr, l , m , r);
+	}
+    
+    
+    
+    
+    
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int *arr = (int *)malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    mergeSort(arr, 0, n - 1);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    free(arr);
+    return 0;
+}
