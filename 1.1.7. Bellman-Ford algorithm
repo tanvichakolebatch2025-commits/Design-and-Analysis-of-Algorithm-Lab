@@ -1,0 +1,39 @@
+1.1.7. Bellman-Ford algorithm
+Bellman-Ford is a shortest path algorithm used to find the minimum distance from a single source vertex to all other vertices in a weighted directed graph. Unlike Dijkstra’s algorithm, Bellman-Ford can handle negative edge weights and can also detect negative weight cycles.
+#include <stdio.h>
+    for (int i = 0; i < E; i++) {
+        int u = edges[i].u;
+        int v = edges[i].v;
+        int w = edges[i].w;
+        if (dist[u] != INF && dist[u] + w < dist[v]) {
+            printf("Negative cycle detected\n");
+            return 0;          }
+	}
+    for (int v = 1; v <= V; v++) {
+        if (v == src)
+            continue;
+
+        if (dist[v] == INF) {
+            printf("%d INF None\n", v);
+        } else {
+            int path[V + 1];
+            int count = 0;
+            int current = v;
+            while (current != -1) {
+                path[count++] = current;
+                current = parent[current];
+			}
+            printf("%d %d ", v, dist[v]);
+            for (int i = count - 1; i >= 0; i--) {
+                printf("%d", path[i]);
+                if (i != 0)
+                    printf("->");
+			}
+            printf("\n");
+        }
+	}
+
+
+    return 0;
+}
+
